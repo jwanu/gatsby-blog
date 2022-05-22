@@ -23,9 +23,9 @@ const Layout:React.FC<ILayoutProps> = ({ pageTitle, children }) => {
       <header>{data.site.siteMetadata.title}</header>
       <nav>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/blog">Blog</Link></li>
+          <li><Link to="/" activeStyle={{color: 'red'}}>Home</Link></li>
+          <li><Link to="/about" activeStyle={{color: 'blue'}} state={{frome: 'showshow'}}>About</Link></li>
+          <li><Link to="/blog" activeStyle={{color: 'red'}} partiallyActive={true}>Blog</Link></li>
         </ul>
       </nav>
       <main>

@@ -1,4 +1,9 @@
 /** @type {import('gatsby').GatsbyConfig} */
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+
 module.exports = {
   siteMetadata: {
       title: `My First Gatsby`,
@@ -15,7 +20,20 @@ module.exports = {
       }
     },
     "gatsby-plugin-mdx",
-    "gatsby-transformer-sharp"
+    "gatsby-transformer-sharp",
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `ovb5dn7f1s2s`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
+    },
     // {
     //   resolve: 'gatsby-remark-prismjs',
     //   options: {
